@@ -1,0 +1,6 @@
+<app-create-todo (onCreate)="createTodo($event)"></app-create-todo>
+<section class="todo-board grid">
+  <app-todo-list title="Open" [todos]="openTodos" (onTodoDrop)="updateTodo(TodoStatus.OPEN, $event)" class="grid__item grid__item--1-3"></app-todo-list>
+  <app-todo-list title="In Progress" [todos]="todosInProgress" (onTodoDrop)="updateTodo(TodoStatus.IN_PROGRESS, $event)" class="grid__item grid__item--1-3"></app-todo-list>
+  <app-todo-list title="Done" [todos]="doneTodos" (onTodoDrop)="updateTodo(TodoStatus.DONE, $event)" class="grid__item grid__item--1-3"></app-todo-list>
+</section>

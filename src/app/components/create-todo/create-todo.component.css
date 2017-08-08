@@ -1,0 +1,18 @@
+.create-todo {
+  text-align: center;
+}
+
+.create-todo .form__item--input {
+  display: inline-block;
+}
+
+.create-todo .form__item--input .input {
+  display: inline-block;
+  margin: 10px;
+  width: 300px;
+}
+
+.create-todo button {
+  margin: 10px;
+  vertical-align: bottom;
+}
