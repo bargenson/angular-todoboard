@@ -8,6 +8,7 @@ import { TodoBoardComponent } from './components/todo-board/todo-board.component
 import { CreateTodoComponent } from './components/create-todo/create-todo.component';
 import { FormsModule } from '@angular/forms';
 import { DndModule } from 'ng2-dnd';
+import { TodoService } from './services/todo.service';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,7 @@ import { DndModule } from 'ng2-dnd';
     FormsModule,
     DndModule.forRoot()
   ],
-  providers: [],
+  providers: [TodoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
