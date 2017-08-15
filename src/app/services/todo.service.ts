@@ -5,7 +5,7 @@ import { TodoStatus } from '../models/todo-status';
 @Injectable()
 export class TodoService {
 
-  private todos = [] as Todo[];
+  private todos: Todo[] = [];
 
   createTodo(todo): void {
     todo.status = TodoStatus.OPEN;

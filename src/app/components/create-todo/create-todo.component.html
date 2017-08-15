@@ -2,9 +2,9 @@
   <form class="form" (submit)="createTodo()">
     <div class="form__item form__item--input">
       <div className="input">
-        <input type="text" name="todoDescription" data-value="taskName" placeholder="Enter your new Todo" [(ngModel)]="model.description" />
+        <input type="text" name="todoDescription" data-value="taskName" placeholder="Enter your new Todo" [(ngModel)]="model.description" required />
       </div>
-      <button type="submit" className="btn">Create</button>
+      <button type="submit" className="btn" [disabled]="!isValid()">Create</button>
     </div>
   </form>
 </div>

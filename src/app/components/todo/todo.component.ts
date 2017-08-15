@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Todo } from '../../models/todo';
 
 @Component({
@@ -8,8 +8,14 @@ import { Todo } from '../../models/todo';
     './todo.component.css'
   ]
 })
-export class TodoComponent {
+export class TodoComponent implements OnInit {
 
   @Input() todo: Todo;
+
+  ngOnInit(): void {
+    if (!this.todo) {
+      throw new Error('todo attribute is mandatory');
+    }
+  }
 
 }

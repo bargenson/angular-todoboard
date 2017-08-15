@@ -9,6 +9,7 @@ import { CreateTodoComponent } from './components/create-todo/create-todo.compon
 import { FormsModule } from '@angular/forms';
 import { DndModule } from 'ng2-dnd';
 import { TodoService } from './services/todo.service';
+import { EllipsisPipe } from './pipes/ellipsis.pipe';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { TodoService } from './services/todo.service';
     TodoComponent,
     TodoBoardComponent,
     TodoListComponent,
-    CreateTodoComponent
+    CreateTodoComponent,
+    EllipsisPipe
   ],
   imports: [
     BrowserModule,
