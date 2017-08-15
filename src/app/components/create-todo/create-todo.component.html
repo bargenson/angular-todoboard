@@ -1,10 +1,19 @@
 <div class="create-todo">
   <form class="form" (submit)="createTodo()">
     <div class="form__item form__item--input">
-      <div className="input">
-        <input type="text" name="todoDescription" data-value="taskName" placeholder="Enter your new Todo" [(ngModel)]="model.description" required />
+      <label for="todoDescription">Description:</label>
+      <div class="input">
+        <input type="text" id="todoDescription" name="todoDescription" [(ngModel)]="model.description" required />
       </div>
-      <button type="submit" className="btn" [disabled]="!isValid()">Create</button>
+    </div>
+    <div class="form__item form__item--input">
+      <label for="todoDueDate">Due date:</label>
+      <div class="input">
+        <my-date-picker id="todoDueDate" name="todoDueDate" [options]="dueDatePickerOptions" (dateChanged)="onDateChanged($event)"></my-date-picker>
+      </div>
+    </div>
+    <div class="form__item form__item--submit form__item--center">
+      <button type="submit" class="btn" [disabled]="!isValid()">Create</button>
     </div>
   </form>
 </div>

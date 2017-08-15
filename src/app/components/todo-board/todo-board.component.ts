@@ -1,37 +1,40 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { TodoStatus } from '../../models/todo-status';
 import { TodoService } from '../../services/todo.service';
+import { Todo } from '../../models/todo';
 
 @Component({
   selector: 'app-todo-board',
   templateUrl: './todo-board.component.html'
 })
-export class TodoBoardComponent {
+export class TodoBoardComponent implements OnInit {
 
   TodoStatus = TodoStatus;
+  openTodos: Todo[] = [];
+  todosInProgress: Todo[] = [];
+  doneTodos: Todo[] = [];
 
   constructor(private todoService: TodoService) {
   }
 
-  get openTodos() {
-    return this.todoService.getTodos().filter(todo => todo.status === TodoStatus.OPEN);
+  private loadTodos(): void {
+    this.todoService.getTodos().subscribe(todos => {
+      console.log(todos);
+      this.openTodos = todos.filter(todo => todo.status === TodoStatus.OPEN);
+      this.todosInProgress = todos.filter(todo => todo.status === TodoStatus.IN_PROGRESS);
+      this.doneTodos = todos.filter(todo => todo.status === TodoStatus.DONE);
+    });
   }
 
-  get todosInProgress() {
-    return this.todoService.getTodos().filter(todo => todo.status === TodoStatus.IN_PROGRESS);
-  }
-
-  get doneTodos() {
-    return this.todoService.getTodos().filter(todo => todo.status === TodoStatus.DONE);
-  }
-
-  createTodo(todo): void {
-    this.todoService.createTodo(todo);
+  ngOnInit(): void {
+    this.loadTodos();
   }
 
   updateTodo(status, todo) {
     todo.status = status;
-    this.todoService.updateTodo(todo);
+    this.todoService.updateTodo(todo).subscribe(() => {
+      this.loadTodos();
+    });
   }
 
 }

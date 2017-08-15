@@ -1,3 +1,4 @@
 <article dnd-draggable [dragEnabled]="true" [dragData]="todo" class="todo">
   <p>{{todo.description | ellipsis:10}}</p>
+  <a [routerLink]="['/todo', todo.id]">View details</a>
 </article>
