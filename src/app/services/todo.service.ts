@@ -3,7 +3,7 @@ import { Todo } from '../models/todo';
 import { TodoStatus } from '../models/todo-status';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/map'
+import 'rxjs/add/operator/map';
 
 const BACKEND_BASE_URL = 'http://localhost:8080/todos';
 

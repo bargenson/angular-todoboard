@@ -1,5 +1,5 @@
 <article>
   <h1>Todo #{{todo.id}}</h1>
-  <p>{{todo.description | ellipsis:10}}</p>
+  <p>{{todo.description}}</p>
   <i *ngIf="todo && todo.dueDate">Due date: {{todo.dueDate | date}}</i>
 </article>

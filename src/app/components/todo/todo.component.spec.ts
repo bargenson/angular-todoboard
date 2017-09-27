@@ -46,7 +46,7 @@ describe('TodoComponent', () => {
     fixture.detectChanges();
 
     // Then
-    expect(el.textContent).toContain(comp.todo.description);
+    expect(el.textContent).toContain(todo.description);
   });
 
   it('should display a link to more details', () => {

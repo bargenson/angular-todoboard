@@ -37,7 +37,7 @@ describe('TodoListComponent', () => {
     el = de.nativeElement;
   });
 
-  it('should display as my TodoComponent as todos', () => {
+  it('should display my todos as TodoComponents', () => {
     // Given
     const todos = [{
       id: '1234567890',
